@@ -1,0 +1,201 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Char1.gd" type="Script" id=1]
+[ext_resource path="res://Turnqueue.gd" type="Script" id=3]
+[ext_resource path="res://Enn1.gd" type="Script" id=4]
+[ext_resource path="res://Character.gd" type="Script" id=5]
+[ext_resource path="res://Ennemy.gd" type="Script" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 149.781, 162.213 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 81.9625, 82.44 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 51.2775, 129.37 )
+
+[node name="World" type="Node"]
+
+[node name="Turnqueue" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Char1" type="Control" parent="Turnqueue"]
+margin_left = 598.15
+margin_top = 623.762
+margin_right = 638.15
+margin_bottom = 663.762
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hp1" type="ProgressBar" parent="Turnqueue/Char1"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mana1" type="ProgressBar" parent="Turnqueue/Char1"]
+margin_top = 41.515
+margin_right = 40.0
+margin_bottom = 81.515
+
+[node name="Char1" type="MarginContainer" parent="Turnqueue/Char1"]
+margin_left = -129.857
+margin_top = 1.80499
+margin_right = 294.143
+margin_bottom = 425.805
+rect_scale = Vector2( 0.3, 0.3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="C1" type="CenterContainer" parent="Turnqueue/Char1/Char1"]
+margin_right = 424.0
+margin_bottom = 424.0
+
+[node name="1" type="TextureRect" parent="Turnqueue/Char1/Char1/C1"]
+margin_left = 212.0
+margin_top = 212.0
+margin_right = 212.0
+margin_bottom = 212.0
+
+[node name="Ch1" type="TextureRect" parent="Turnqueue/Char1/Char1/C1"]
+margin_left = 212.0
+margin_top = 212.0
+margin_right = 212.0
+margin_bottom = 212.0
+
+[node name="Lvl1" type="Label" parent="Turnqueue/Char1"]
+margin_left = 6.13867
+margin_top = 110.796
+margin_right = 46.1387
+margin_bottom = 124.796
+
+[node name="Enn1" type="Control" parent="Turnqueue"]
+margin_left = 1359.0
+margin_top = 639.0
+margin_right = 1473.0
+margin_bottom = 732.0
+mouse_default_cursor_shape = 3
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hp1" type="ProgressBar" parent="Turnqueue/Enn1"]
+margin_left = -174.182
+margin_top = 4.51251
+margin_right = -134.182
+margin_bottom = 44.5125
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mana1" type="ProgressBar" parent="Turnqueue/Enn1"]
+margin_left = -174.182
+margin_top = 47.8325
+margin_right = -134.182
+margin_bottom = 87.8325
+mouse_filter = 2
+
+[node name="HpText" type="Label" parent="Turnqueue/Enn1"]
+margin_left = -218.283
+margin_top = 13.2964
+margin_right = -178.283
+margin_bottom = 27.2964
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Enn1" type="MarginContainer" parent="Turnqueue/Enn1"]
+margin_left = -69.7146
+margin_top = -11.0828
+margin_right = 354.285
+margin_bottom = 412.917
+rect_scale = Vector2( 0.3, 0.3 )
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="E1" type="CenterContainer" parent="Turnqueue/Enn1/Enn1"]
+margin_right = 424.0
+margin_bottom = 424.0
+mouse_filter = 2
+
+[node name="1" type="TextureRect" parent="Turnqueue/Enn1/Enn1/E1"]
+margin_left = 212.0
+margin_top = 212.0
+margin_right = 212.0
+margin_bottom = 212.0
+mouse_filter = 2
+
+[node name="En1" type="TextureRect" parent="Turnqueue/Enn1/Enn1/E1"]
+margin_left = 212.0
+margin_top = 212.0
+margin_right = 212.0
+margin_bottom = 212.0
+mouse_filter = 2
+
+[node name="Lvl1" type="Label" parent="Turnqueue/Enn1"]
+margin_left = -191.487
+margin_top = 66.9882
+margin_right = -191.487
+margin_bottom = 80.9882
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 940, 285 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="Character" type="KinematicBody2D" parent="."]
+position = Vector2( 28.7, 198.507 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 5 )
+
+[node name="Hitbox" type="CollisionShape2D" parent="Character"]
+position = Vector2( 46.93, 110.105 )
+shape = SubResource( 2 )
+
+[node name="Icon" type="Sprite" parent="Character"]
+
+[node name="Ennemy" type="KinematicBody2D" parent="."]
+position = Vector2( 1799.86, 294.982 )
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 6 )
+
+[node name="Hitbox" type="CollisionShape2D" parent="Ennemy"]
+position = Vector2( 12.3243, -0.172577 )
+shape = SubResource( 2 )
+
+[node name="Icon" type="Sprite" parent="Ennemy"]
+position = Vector2( 11.6879, 6.10352e-05 )
+
+[node name="StaticChar" type="StaticBody2D" parent="."]
+position = Vector2( -2.3916, 167.416 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticChar"]
+position = Vector2( -106.495, 112.813 )
+shape = SubResource( 3 )
+
+[node name="StaticEnn" type="StaticBody2D" parent="."]
+position = Vector2( 831.077, 138.199 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticEnn"]
+position = Vector2( 1139.86, 112.813 )
+shape = SubResource( 3 )
